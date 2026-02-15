@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            margin: 0;
+            overflow: hidden;
+        }
+        h1 {
+            color: #d32f2f;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        #yesBtn {
+            background-color: #4caf50;
+        }
+        #noBtn {
+            background-color: #f44336;
+            position: relative;
+        }
+        #rose-container {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+        #rose-container img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="question">Rebekah, Will you be my Valentine?</h1>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="acceptValentine()">Yes</button>
+        <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
+    </div>
+
+    <div id="rose-container">
+        <h2>Yay! Happy Valentine's Day! 🌹</h2>
+        <img src="Image_20260214.jpg" alt="A beautiful rose">
+    </div>
+
+    <script>
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+            // Ensure the button stays within the viewport
+            const maxX = window.innerWidth - noBtn.offsetWidth;
+            const maxY = window.innerHeight - noBtn.offsetHeight;
+
+            const safeX = Math.min(Math.max(0, x), maxX);
+            const safeY = Math.min(Math.max(0, y), maxY);
+
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${safeX}px`;
+            noBtn.style.top = `${safeY}px`;
+        }
+
+        function acceptValentine() {
+            document.getElementById('question').style.display = 'none';
+            document.querySelector('.buttons').style.display = 'none';
+            document.getElementById('rose-container').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

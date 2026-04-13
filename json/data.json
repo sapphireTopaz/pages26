@@ -1,4 +1,6 @@
 {
-  "treats_code": "ZVXY26",
-  "treats_code_usage": 10
+  "codes": {
+    "ABC12": { "treats": 5 },
+    "XYZ99": { "treats": 10 }
+  }
 }
